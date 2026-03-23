@@ -7,7 +7,7 @@ from torch.optim import lr_scheduler
 import functools
 from einops import rearrange
 
-from models.changebind_model_2 import ChangeBindModel
+from models.hyret import ChangeBindModel
 
 ###############################################################################
 # Helper Functions

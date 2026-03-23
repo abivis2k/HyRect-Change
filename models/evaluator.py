@@ -74,11 +74,18 @@ class CDEvaluator():
             keys = list(state_dict.keys())
             state_dict_new = OrderedDict()
             
-            for key in keys:
-                key_new = key[7:]
-                state_dict_new[key_new] = state_dict[key]
-            
-            del checkpoint['model_G_state_dict']
+            # for key in keys:
+            #     key_new = key[7:]
+            #     state_dict_new[key_new] = state_dict[key]
+
+            for key, value in state_dict.items():
+                if key.startswith('module.'):
+                    key_new = key[7:]
+                else:
+                    key_new = key
+                state_dict_new[key_new] = value
+
+            # del checkpoint['model_G_state_dict']
             checkpoint['model_G_state_dict'] = state_dict_new
             
             if isinstance(self.net_G, torch.nn.DataParallel):

@@ -7,19 +7,15 @@ class DataConfig:
         self.data_name = data_name
         if data_name == 'LEVIR':
             self.label_transform = "norm"
-            self.root_dir = '/dccstor/urban/mustansar/datasets/cd_ds/LEVIR-CD256/'
+            self.root_dir = 'C:\\LEVIR-CD256'
        
         elif data_name == 'WHU':
             self.label_transform = "norm"
-            self.root_dir = '/nvme-data/change_former/dataset/CD/WHU-CD-256/'
-
-        elif data_name == 'SYSU':
-            self.label_transform = "norm"
-            self.root_dir = '/nvme-data/change_former/dataset/CD/SYSU-CD-256/'
+            self.root_dir = 'C:\\WHU-CD256'
 
         elif data_name == 'CDD':
             self.label_transform = "norm"
-            self.root_dir =  '/dccstor/urban/mustansar/datasets/cd_ds/CDD/'
+            self.root_dir = 'C:\\CDD-CD256'
 
         else:
             raise TypeError('%s has not defined' % data_name)
