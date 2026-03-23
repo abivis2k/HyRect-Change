@@ -21,6 +21,8 @@ class CDEvaluator():
 
     def __init__(self, args, dataloader):
 
+        self.args = args
+
         self.dataloader = dataloader
 
         self.n_class = args.n_class
@@ -74,9 +76,16 @@ class CDEvaluator():
             keys = list(state_dict.keys())
             state_dict_new = OrderedDict()
             
-            for key in keys:
-                key_new = key[7:]
-                state_dict_new[key_new] = state_dict[key]
+            # for key in keys:
+            #     key_new = key[7:]
+            #     state_dict_new[key_new] = state_dict[key]
+
+            for key, value in state_dict.items():
+                if key.startswith('module.'):
+                    key_new = key[7:]
+                else:
+                    key_new = key
+                state_dict_new[key_new] = value
             
             del checkpoint['model_G_state_dict']
             checkpoint['model_G_state_dict'] = state_dict_new
@@ -197,8 +206,11 @@ class CDEvaluator():
         self.is_training = False
         self.net_G.eval()
 
-                
-        input_res = (3, 224, 224)
+        if self.args.backbone == 'swin_base':
+            input_res = (3, 256, 256)
+        else:
+            input_res = (3, 224, 224)
+        # input_res = (3, 224, 224)
         input = torch.ones(()).new_empty((1, *input_res), dtype=next(self.net_G.parameters()).dtype,
                                         device=next(self.net_G.parameters()).device)
         #model.eval()

@@ -7,7 +7,7 @@ from torch.optim import lr_scheduler
 import functools
 from einops import rearrange
 
-from models.changebind_model_2 import ChangeBindModel
+from models.hyret import ChangeBindModel
 
 ###############################################################################
 # Helper Functions
@@ -85,7 +85,7 @@ def init_net(net, init_type='normal', init_gain=0.02, gpu_ids=[]):
     Return an initialized network.
     """
     if len(gpu_ids) > 0:
-        assert(torch.cuda.is_available())
+        assert(torch.cuda.is_available() or torch.backends.mps.is_available())
         net.to(gpu_ids[0])
         if len(gpu_ids) > 1:
             net = torch.nn.DataParallel(net, gpu_ids)  # multi-GPUs
@@ -95,7 +95,7 @@ def init_net(net, init_type='normal', init_gain=0.02, gpu_ids=[]):
 
 def define_G(args, init_type='normal', init_gain=0.02, gpu_ids=[]):
     if args.net_G == 'ChangeBind':
-        net = ChangeBindModel(embed_dim=args.embed_dim)
+        net = ChangeBindModel(embed_dim=args.embed_dim, backbone=args.backbone)
     else:
         raise NotImplementedError('Generator model name [%s] is not recognized' % args.net_G)
 

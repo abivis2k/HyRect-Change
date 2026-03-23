@@ -48,12 +48,14 @@ if __name__ == '__main__':
     # model
     parser.add_argument('--n_class', default=2, type=int)
     parser.add_argument('--embed_dim', default=256, type=int)
-    parser.add_argument('--pretrain', default='./pretrain/resnet50.pth', type=str)
+    # MODIFIED (--pretrain default value was './pretrain/resnet50.pth')
+    parser.add_argument('--pretrain', default=None, type=str)
     parser.add_argument('--multi_scale_train', default=False, type=bool)
     parser.add_argument('--multi_scale_infer', default=False, type=bool)
     parser.add_argument('--multi_pred_weights', nargs = '+', type = float, default = [0.5, 0.5, 0.5, 0.8, 1.0])
     parser.add_argument('--net_G', default='ChangeBind', type=str, help='ChangeBind model')
     parser.add_argument('--loss', default='ce', type=str)
+    parser.add_argument('--backbone', default='resnet50', type=str, help='resnet50 | swin_base')
 
     # optimizer
     parser.add_argument('--optimizer', default='adamw', type=str)

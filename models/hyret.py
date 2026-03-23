@@ -18,15 +18,15 @@ import torch
 import torch.nn as nn
 from torch.nn.common_types import _size_2_t
 import torch.utils.checkpoint as checkpoint
-from timm.models.layers import DropPath, to_2tuple, trunc_normal_
+from timm.layers import DropPath, to_2tuple, trunc_normal_
 
 import math
 import torch
 import torch.nn.functional as F
 import torch.nn as nn
-from timm.models.layers import DropPath, trunc_normal_
+from timm.layers import DropPath, trunc_normal_
 from timm.models.vision_transformer import VisionTransformer
-from timm.models.registry import register_model
+from timm.models import register_model
 from timm.models.vision_transformer import _cfg
 from fvcore.nn import FlopCountAnalysis, flop_count_table
 import time
@@ -373,10 +373,17 @@ class DifferenceEncoder(nn.Module):
 
 
 class ChangeBindModel(nn.Module):
-    def __init__(self, embed_dim=256, encoder_dims=[256, 512, 1024, 2048], freeze_backbone=False):
+    def __init__(self, embed_dim=256, backbone='resnet50', encoder_dims=[256, 512, 1024, 2048], freeze_backbone=False):
         super().__init__()
 
-        self.visual_encoder = create_model('resnet50', pretrained=False, features_only=True)
+        if backbone == 'resnet50':
+            self.visual_encoder = create_model('resnet50', pretrained=False, features_only=True)
+            encoder_dims = [256, 512, 1024, 2048]
+        elif backbone == 'swin_base':
+            self.visual_encoder = create_model('swin_base_patch4_window7_224', pretrained=False, features_only=True, img_size=256)
+            encoder_dims = [128, 256, 512, 1024]
+        
+        self.backbone = backbone
         self.difference_encoder = DifferenceEncoder(dims=encoder_dims, embedding_dim=embed_dim)
         self.decoder = Decoder(embedding_dim=embed_dim)
         
@@ -385,7 +392,11 @@ class ChangeBindModel(nn.Module):
                 param.requires_grad = False
 
     def forward_visual_features(self, x):
-        _, x1, x2, x3, x4 = self.visual_encoder(x)
+        if self.backbone == 'resnet50':
+            _, x1, x2, x3, x4 = self.visual_encoder(x)
+        elif self.backbone == 'swin_base':
+            features = self.visual_encoder(x)
+            x1, x2, x3, x4 = [f.permute(0, 3, 1, 2).contiguous() for f in features]
         return x1, x2, x3, x4
 
     def encode_difference_features(self, pre_feats, post_feats):

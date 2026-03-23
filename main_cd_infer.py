@@ -22,7 +22,7 @@ def test(args):
                                   split='test')
     model = CDEvaluator(args=args, dataloader=dataloader)
 
-    model.eval_models()
+    model.eval_models(checkpoint_name=args.checkpoint_name)
 
 
 if __name__ == '__main__':
@@ -54,6 +54,9 @@ if __name__ == '__main__':
     parser.add_argument('--multi_pred_weights', nargs = '+', type = float, default = [0.5, 0.5, 0.5, 0.8, 1.0])
     parser.add_argument('--net_G', default='ChangeBind', type=str, help='ChangeBind model')
     parser.add_argument('--loss', default='ce', type=str)
+    # ADDED
+    parser.add_argument('--checkpoint_name', default='best_ckpt.pt', type=str)
+    parser.add_argument('--backbone', default='resnet50', type=str, help='resnet50 | swin_base')
 
     # optimizer
     parser.add_argument('--optimizer', default='adamw', type=str)

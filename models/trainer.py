@@ -164,13 +164,13 @@ class CDTrainer():
         else:
             if isinstance(self.net_G, nn.DataParallel):
                 msg = self.net_G.module.visual_encoder.load_state_dict(torch.load(self.args.pretrain), strict=False)
-                print(msg)
             else:
                 msg = self.net_G.visual_encoder.load_state_dict(torch.load(self.args.pretrain), strict=False)
-                print(msg)
+            print(msg)
             self.net_G.to(self.device)
 
             print('####### Backbone weights loaded .....')
+                
         
         print("\n")
 
