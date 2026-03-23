@@ -2,6 +2,7 @@
 data_config.py
 __pycache__/
 conda-env/
+.vscode
 # large files
 checkpoints/**
 !checkpoints/.gitkeep
