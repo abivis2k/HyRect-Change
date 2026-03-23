@@ -1,2 +1,14 @@
-datasets/
-checkpoints/
+# local only
+data_config.py
+__pycache__/
+conda-env/
+# large files
+checkpoints/**
+!checkpoints/.gitkeep
+/datasets/**
+!/datasets/CD_dataset.py
+!/datasets/data_utils.py
+/pretrain/**
+!/pretrain/.gitkeep
+/vis/**
+!/vis/.gitkeep
