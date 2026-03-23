@@ -373,7 +373,7 @@ class DifferenceEncoder(nn.Module):
 
 
 class ChangeBindModel(nn.Module):
-    def __init__(self, embed_dim=256, backbone='resnet50', encoder_dims=[256, 512, 1024, 2048], freeze_backbone=False):
+    def __init__(self, embed_dim=256, backbone='resnet50', freeze_backbone=False):
         super().__init__()
 
         if backbone == 'resnet50':
