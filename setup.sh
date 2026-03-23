@@ -15,13 +15,15 @@ conda tos accept --override-channels --channel https://repo.anaconda.com/pkgs/r
 echo "Creating conda environment..."
 conda create -n hyret python=3.8 -y
 
+source $HOME/miniconda/etc/profile.d/conda.sh
+conda activate hyret
+
+echo "Coding GitHub repo..."
 git clone https://github.com/abivis2k/HyRect-Change.git
 cd HyRect-Change/
 git checkout jlcorrei
 
-source $HOME/miniconda/etc/profile.d/conda.sh
-conda activate hyret
-
+echo "Downloading datasets..."
 cd datasets/
 wget https://huggingface.co/datasets/42meow/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/WHU-CD256.zip
 unzip WHU-CD256.zip
@@ -32,13 +34,11 @@ unzip CDD-CD256.zip
 rm *.zip
 cd ../
 
+echo "Downloading pretrain weights..."
 cd pretrain/
 wget https://huggingface.co/datasets/42meow/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/resnet50.pth
 wget https://github.com/SwinTransformer/storage/releases/download/v1.0.0/swin_base_patch4_window7_224.pth -P pretrain/
 cd ../
-
-sudo apt-get install -y tmux
-tmux new -s train
 
 echo "Installing dependencies..."
 # conda install pytorch==1.10.1 torchvision==0.11.2 cudatoolkit=11.3 -c pytorch -c conda-forge -y
@@ -48,4 +48,7 @@ echo "Installing dependencies..."
 pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121 
 pip install einops==0.3.2 fvcore==0.1.5.post20221221 matplotlib==3.7.5 opencv-python setuptools==75.1.0 timm==1.0.24 wheel==0.44.0
 
-echo "Done (conda activate hyret)"
+sudo apt-get install -y tmux
+
+echo "DONE"
+tmux new -s train
