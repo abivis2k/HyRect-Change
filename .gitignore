@@ -13,3 +13,4 @@ checkpoints/**
 !/pretrain/.gitkeep
 /vis/**
 !/vis/.gitkeep
+**/__pycache__/
