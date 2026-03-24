@@ -1,3 +1,10 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+LEVIR_LOCATION = os.getenv("LEVIR_DATASET_LOCATION")
+WHU_LOCATION = os.getenv("WHU_DATASET_LOCATION")
+CDD_LOCATION = os.getenv("CDD_DATASET_LOCATION")
 
 class DataConfig:
     data_name = ""
@@ -7,15 +14,15 @@ class DataConfig:
         self.data_name = data_name
         if data_name == 'LEVIR':
             self.label_transform = "norm"
-            self.root_dir = 'C:\\LEVIR-CD256'
+            self.root_dir = LEVIR_LOCATION
        
         elif data_name == 'WHU':
             self.label_transform = "norm"
-            self.root_dir = 'C:\\WHU-CD256'
+            self.root_dir = WHU_LOCATION
 
         elif data_name == 'CDD':
             self.label_transform = "norm"
-            self.root_dir = 'C:\\CDD-CD256'
+            self.root_dir = CDD_LOCATION
 
         else:
             raise TypeError('%s has not defined' % data_name)
