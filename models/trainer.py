@@ -9,7 +9,7 @@ import torch
 import torch.optim as optim
 import numpy as np
 from misc.metric_tool import ConfuseMatrixMeter
-from models.losses import cross_entropy
+from models.losses import cross_entropy, dice, ce_dice
 import models.losses as losses
 from models.losses import get_alpha, softmax_helper, FocalLoss, mIoULoss, mmIoULoss
 import torch
@@ -114,6 +114,10 @@ class CDTrainer():
             self._pxl_loss = mIoULoss(weight=weights, size_average=True, n_classes=args.n_class).cuda()
         elif args.loss == "mmiou":
             self._pxl_loss = mmIoULoss(n_classes=args.n_class).cuda()
+        elif args.loss == "dice":
+            self._pxl_loss = dice
+        elif args.loss == "ce_dice":
+            self._pxl_loss = ce_dice
         else:
             raise NotImplemented(args.loss)
 

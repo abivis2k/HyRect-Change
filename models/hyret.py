@@ -34,7 +34,6 @@ from typing import Tuple, Union
 from functools import partial
 import numpy as np
 
-
 class DWConv2d(nn.Module):
 
     def __init__(self, dim, kernel_size, stride, padding):
@@ -382,7 +381,6 @@ class ChangeBindModel(nn.Module):
         elif backbone == 'swin_base':
             self.visual_encoder = create_model('swin_base_patch4_window7_224', pretrained=False, features_only=True, img_size=256)
             encoder_dims = [128, 256, 512, 1024]
-        
         self.backbone = backbone
         self.difference_encoder = DifferenceEncoder(dims=encoder_dims, embedding_dim=embed_dim)
         self.decoder = Decoder(embedding_dim=embed_dim)

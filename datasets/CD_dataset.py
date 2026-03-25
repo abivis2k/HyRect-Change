@@ -49,7 +49,7 @@ def get_label_path(root_dir, img_name):
 
 class ImageDataset(data.Dataset):
     """VOCdataloder"""
-    def __init__(self, root_dir, split='train', img_size=256, is_train=True,to_tensor=True):
+    def __init__(self, root_dir, split='train', img_size=256, is_train=True,to_tensor=True, hflip=0.5, vflip=0.5):
         super(ImageDataset, self).__init__()
         self.root_dir = root_dir
         self.img_size = img_size
@@ -63,8 +63,10 @@ class ImageDataset(data.Dataset):
         if is_train:
             self.augm = CDDataAugmentation(
                 img_size=self.img_size,
-                with_random_hflip=True,
-                with_random_vflip=True,
+                with_random_hflip=hflip > 0,
+                with_random_vflip=vflip > 0,
+                hflip=hflip,
+                vflip=vflip,
                 with_scale_random_crop=True,
                 with_random_blur=True,
                 random_color_tf=True
