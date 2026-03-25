@@ -95,9 +95,9 @@ class ImageDataset(data.Dataset):
 class CDDataset(ImageDataset):
 
     def __init__(self, root_dir, img_size, split='train', is_train=True, label_transform=None,
-                 to_tensor=True):
+                 to_tensor=True, hflip=0.5, vflip=0.5):
         super(CDDataset, self).__init__(root_dir, img_size=img_size, split=split, is_train=is_train,
-                                        to_tensor=to_tensor)
+                                        to_tensor=to_tensor, hflip=hflip, vflip=vflip)
         self.label_transform = label_transform
 
     def __getitem__(self, index):
