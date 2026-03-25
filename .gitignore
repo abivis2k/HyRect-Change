@@ -11,6 +11,7 @@ checkpoints/**
 !/datasets/data_utils.py
 /pretrain/**
 !/pretrain/.gitkeep
+!/pretrain/cityscapes.py
 /vis/**
 !/vis/.gitkeep
 **/__pycache__/
