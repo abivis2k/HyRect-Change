@@ -50,7 +50,7 @@ def dice(input, target, weight=None, reduction='mean', ignore_index=255, eps=1e-
     denom = prob.sum(-1) + target_oh.sum(-1)
     dice = (2.0 * intersection + eps) / (denom + eps)
     
-    return 1.0 - dice.mean()
+    return 1 - dice.mean()
 
 #Cross Entropy + Dice Loss
 def ce_dice(input, target, weight=None, reduction='mean', ignore_index=255, eps=1e-7):
