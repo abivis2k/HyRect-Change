@@ -8,14 +8,14 @@ hf_state = hf_model.model.pixel_level_module.encoder.state_dict()
 
 def map_keys(k):
     k = k.replace("embeddings.patch_embeddings.projection.", "patch_embed.proj.")
-    k = k.replace("embeddings.norm.",                        "patch_embed.norm.")
+    k = k.replace("embeddings.norm.", "patch_embed.norm.")
     k = re.sub(r"^encoder\.layers\.", "layers.", k)
     k = k.replace(".layernorm_before.", ".norm1.")
-    k = k.replace(".layernorm_after.",  ".norm2.")
+    k = k.replace(".layernorm_after.", ".norm2.")
     k = k.replace(".attention.self.relative_position_bias_table", ".attn.relative_position_bias_table")
-    k = k.replace(".attention.output.dense.",                     ".attn.proj.")
+    k = k.replace(".attention.output.dense.", ".attn.proj.")
     k = k.replace(".intermediate.dense.", ".mlp.fc1.")
-    k = k.replace(".output.dense.",       ".mlp.fc2.")
+    k = k.replace(".output.dense.", ".mlp.fc2.")
     k = re.sub(r"^encoder\.layernorm\.", "norm.", k)
     return k
 
