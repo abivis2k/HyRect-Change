@@ -379,7 +379,7 @@ class ChangeBindModel(nn.Module):
             self.visual_encoder = create_model('resnet50', pretrained=False, features_only=True)
             encoder_dims = [256, 512, 1024, 2048]
         elif backbone == 'swin_base':
-            self.visual_encoder = create_model('swin_base_patch4_window7_224_22k', pretrained=False, features_only=True)
+            self.visual_encoder = create_model('swin_base_patch4_window7_224', pretrained=False, features_only=True)
             encoder_dims = [128, 256, 512, 1024]
         self.backbone = backbone
         self.difference_encoder = DifferenceEncoder(dims=encoder_dims, embedding_dim=embed_dim)
