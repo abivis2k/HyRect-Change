@@ -11,7 +11,7 @@ class DataConfig:
        
         elif data_name == 'WHU':
             self.label_transform = "norm"
-            self.root_dir = 'datasets/WHU-CD-256/'
+            self.root_dir = 'datasets/WHU-CD256/'
 
         elif data_name == 'SYSU':
             self.label_transform = "norm"
