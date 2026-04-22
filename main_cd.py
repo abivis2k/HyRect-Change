@@ -57,7 +57,7 @@ if __name__ == '__main__':
     parser.add_argument('--multi_pred_weights', nargs = '+', type = float, default = [0.5, 0.5, 0.5, 0.8, 1.0])
     parser.add_argument('--net_G', default='ChangeBind', type=str, help='ChangeBind model')
     parser.add_argument('--loss', default='ce', type=str)
-    parser.add_argument('--backbone', default='resnet50', type=str, help='resnet50 | swin_base')
+    parser.add_argument('--backbone', default='resnet50', type=str, help='resnet50 | swin_base | convnext')
 
     # optimizer
     parser.add_argument('--optimizer', default='adamw', type=str)

@@ -56,7 +56,7 @@ if __name__ == '__main__':
     parser.add_argument('--loss', default='ce', type=str)
     # ADDED
     parser.add_argument('--checkpoint_name', default='best_ckpt.pt', type=str)
-    parser.add_argument('--backbone', default='resnet50', type=str, help='resnet50 | swin_base')
+    parser.add_argument('--backbone', default='resnet50', type=str, help='resnet50 | swin_base | convnext')
 
     # optimizer
     parser.add_argument('--optimizer', default='adamw', type=str)

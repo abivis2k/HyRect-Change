@@ -381,6 +381,9 @@ class ChangeBindModel(nn.Module):
         elif backbone == 'swin_base':
             self.visual_encoder = create_model('swin_base_patch4_window7_224', pretrained=False, features_only=True, img_size=256)
             encoder_dims = [128, 256, 512, 1024]
+        elif backbone == 'convnext':
+            self.visual_encoder = create_model('convnextv2_base', pretrained=False, features_only=True)
+            encoder_dims = [128, 256, 512, 1024]
         self.backbone = backbone
         self.difference_encoder = DifferenceEncoder(dims=encoder_dims, embedding_dim=embed_dim)
         self.decoder = Decoder(embedding_dim=embed_dim)
@@ -395,6 +398,9 @@ class ChangeBindModel(nn.Module):
         elif self.backbone == 'swin_base':
             features = self.visual_encoder(x)
             x1, x2, x3, x4 = [f.permute(0, 3, 1, 2).contiguous() for f in features]
+        elif self.backbone == 'convnext':
+            features = self.visual_encoder(x)
+            x1, x2, x3, x4 = features[0], features[1], features[2], features[3]
         return x1, x2, x3, x4
 
     def encode_difference_features(self, pre_feats, post_feats):
