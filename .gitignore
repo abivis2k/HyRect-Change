@@ -12,6 +12,7 @@ checkpoints/**
 /pretrain/**
 !/pretrain/.gitkeep
 !/pretrain/cityscapes.py
+!/pretrain/convnext.py
 /vis/**
 !/vis/.gitkeep
 **/__pycache__/
