@@ -21,8 +21,7 @@ def test(args):
                                   batch_size=args.batch_size, is_train=False,
                                   split='test')
     model = CDEvaluator(args=args, dataloader=dataloader)
-
-    model.eval_models()
+    model.eval_models(checkpoint_name=args.checkpoint_name)
 
 
 if __name__ == '__main__':
@@ -31,14 +30,15 @@ if __name__ == '__main__':
     # ------------
     parser = ArgumentParser()
     parser.add_argument('--gpu_ids', type=str, default='0', help='gpu ids: e.g. 0  0,1,2, 0,2. use -1 for CPU')
-    parser.add_argument('--project_name', default='hyret_levir', type=str) #hyret_levir or hyret_cdd
+    parser.add_argument('--project_name', default='hyret_levir', type=str)
     parser.add_argument('--checkpoint_root', default='./checkpoints', type=str)
     parser.add_argument('--vis_root', default='./vis', type=str)
 
     # data
     parser.add_argument('--num_workers', default=8, type=int)
     parser.add_argument('--dataset', default='CDDataset', type=str)
-    parser.add_argument('--data_name', default='LEVIR', type=str) # LEVIR or CDD
+    parser.add_argument('--data_name', default='LEVIR', type=str)
+    parser.add_argument('--data_name', default='CDD', type=str)
     parser.add_argument('--batch_size', default=64, type=int)
     parser.add_argument('--split', default="train", type=str)
     parser.add_argument('--split_val', default="val", type=str)
@@ -54,6 +54,7 @@ if __name__ == '__main__':
     parser.add_argument('--multi_pred_weights', nargs = '+', type = float, default = [0.5, 0.5, 0.5, 0.8, 1.0])
     parser.add_argument('--net_G', default='ChangeBind', type=str, help='ChangeBind model')
     parser.add_argument('--loss', default='ce', type=str)
+    parser.add_argument('--checkpoint_name', default='best_ckpt.pt', type=str)
 
     # optimizer
     parser.add_argument('--optimizer', default='adamw', type=str)

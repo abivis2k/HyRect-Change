@@ -1,10 +1,12 @@
 # local only
+**/__pycache__/
 __pycache__/
 __pycache__
 .vscode/
 .vscode
 conda-env/
 .env
+data_config.py
 
 # large files
 checkpoints/**

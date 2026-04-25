@@ -21,6 +21,8 @@ class CDEvaluator():
 
     def __init__(self, args, dataloader):
 
+        self.args = args
+
         self.dataloader = dataloader
 
         self.n_class = args.n_class
@@ -84,8 +86,8 @@ class CDEvaluator():
                 else:
                     key_new = key
                 state_dict_new[key_new] = value
-
-            # del checkpoint['model_G_state_dict']
+            
+            del checkpoint['model_G_state_dict']
             checkpoint['model_G_state_dict'] = state_dict_new
             
             if isinstance(self.net_G, torch.nn.DataParallel):
@@ -204,7 +206,6 @@ class CDEvaluator():
         self.is_training = False
         self.net_G.eval()
 
-                
         input_res = (3, 224, 224)
         input = torch.ones(()).new_empty((1, *input_res), dtype=next(self.net_G.parameters()).dtype,
                                         device=next(self.net_G.parameters()).device)

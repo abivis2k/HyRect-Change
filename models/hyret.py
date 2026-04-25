@@ -19,21 +19,26 @@ import torch.nn as nn
 from torch.nn.common_types import _size_2_t
 import torch.utils.checkpoint as checkpoint
 from timm.models.layers import DropPath, to_2tuple, trunc_normal_
+from timm.layers import DropPath, to_2tuple, trunc_normal_
 
 import math
 import torch
 import torch.nn.functional as F
 import torch.nn as nn
-from timm.models.layers import DropPath, trunc_normal_
+# <<<<<<< HEAD
+# from timm.models.layers import DropPath, trunc_normal_
+# from timm.models.vision_transformer import VisionTransformer
+# from timm.models.registry import register_model
+# =======
+from timm.layers import DropPath, trunc_normal_
 from timm.models.vision_transformer import VisionTransformer
-from timm.models.registry import register_model
+from timm.models import register_model
 from timm.models.vision_transformer import _cfg
 from fvcore.nn import FlopCountAnalysis, flop_count_table
 import time
 from typing import Tuple, Union
 from functools import partial
 import numpy as np
-
 
 class DWConv2d(nn.Module):
 

@@ -20,6 +20,44 @@ def cross_entropy(input, target, weight=None, reduction='mean',ignore_index=255)
     return F.cross_entropy(input=input, target=target, weight=weight,
                            ignore_index=ignore_index, reduction=reduction)
 
+#Dice Loss
+def dice(input, target, weight=None, reduction='mean', ignore_index=255, eps=1e-7):
+    target = target.long()
+    if target.dim() == 4:
+        target = torch.squeeze(target, dim=1)
+    
+    if input.shape[-1] != target.shape[-1]:
+        input = F.interpolate(input, size=target.shape[1:], mode='bilinear', align_corners=True)
+    
+    n, c, h, w = input.shape
+
+    valid_mask = (target != ignore_index)
+    
+    prob = F.softmax(input, dim=1)
+    
+    prob = prob.view(n, c, -1)           
+    target_flat = target.view(n, -1)     
+    valid_flat = valid_mask.view(n, -1)  
+    
+    target_oh = F.one_hot(torch.clamp(target_flat, min=0), num_classes=c)
+    target_oh = target_oh.permute(0, 2, 1).float()
+    
+    valid_flat = valid_flat.unsqueeze(1)
+    prob = prob * valid_flat
+    target_oh = target_oh * valid_flat
+    
+    intersection = (prob * target_oh).sum(-1)
+    denom = prob.sum(-1) + target_oh.sum(-1)
+    dice = (2.0 * intersection + eps) / (denom + eps)
+    
+    return 1 - dice.mean()
+
+#Cross Entropy + Dice Loss
+def ce_dice(input, target, weight=None, reduction='mean', ignore_index=255, eps=1e-7):
+    ce = cross_entropy(input, target, weight=weight, reduction=reduction, ignore_index=ignore_index)
+    dc = dice(input, target, weight=weight, reduction=reduction, ignore_index=ignore_index, eps=eps)
+    return ce + dc
+
 #Focal Loss
 def get_alpha(supervised_loader):
     # get number of classes

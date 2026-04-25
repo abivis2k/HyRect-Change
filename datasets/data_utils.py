@@ -27,6 +27,8 @@ class CDDataAugmentation:
             img_size,
             with_random_hflip=False,
             with_random_vflip=False,
+            hflip = 0.5,
+            vflip = 0.5,
             with_random_rot=False,
             with_random_crop=False,
             with_scale_random_crop=False,
@@ -45,6 +47,8 @@ class CDDataAugmentation:
         self.with_scale_random_crop = with_scale_random_crop
         self.with_random_blur = with_random_blur
         self.random_color_tf=random_color_tf
+        self.hflip = hflip
+        self.vflip = vflip
 
     def transform(self, imgs, labels, to_tensor=True):
         """
@@ -71,11 +75,11 @@ class CDDataAugmentation:
                         for img in labels]
 
         random_base = 0.5
-        if self.with_random_hflip and random.random() > 0.5:
+        if self.with_random_hflip and random.random() > (1 - self.hflip):
             imgs = [TF.hflip(img) for img in imgs]
             labels = [TF.hflip(img) for img in labels]
 
-        if self.with_random_vflip and random.random() > 0.5:
+        if self.with_random_vflip and random.random() > (1 - self.vflip):
             imgs = [TF.vflip(img) for img in imgs]
             labels = [TF.vflip(img) for img in labels]
 

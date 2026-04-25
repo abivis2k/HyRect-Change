@@ -42,7 +42,9 @@ def get_loaders(args):
     if args.dataset == 'CDDataset':
         training_set = CDDataset(root_dir=root_dir, split=split,
                                  img_size=args.img_size,is_train=True,
-                                 label_transform=label_transform)
+                                 label_transform=label_transform,
+                                 hflip=args.hflip,
+                                 vflip=args.vflip)
         val_set = CDDataset(root_dir=root_dir, split=split_val,
                                  img_size=args.img_size,is_train=False,
                                  label_transform=label_transform)
@@ -74,11 +76,16 @@ def de_norm(tensor_data):
 
 def get_device(args):
     # set gpu ids
-    str_ids = args.gpu_ids.split(',')
-    args.gpu_ids = []
-    for str_id in str_ids:
-        id = int(str_id)
-        if id >= 0:
-            args.gpu_ids.append(id)
-    if len(args.gpu_ids) > 0:
-        torch.cuda.set_device(args.gpu_ids[0])
+    if torch.cuda.is_available():
+        str_ids = args.gpu_ids.split(',')
+        args.gpu_ids = []
+        for str_id in str_ids:
+            id = int(str_id)
+            if id >= 0:
+                args.gpu_ids.append(id)
+        if len(args.gpu_ids) > 0:
+            torch.cuda.set_device(args.gpu_ids[0])
+    elif torch.backends.mps.is_available():
+        args.gpu_ids = ['mps']
+    else:
+        args.gpu_ids = ['cpu']
