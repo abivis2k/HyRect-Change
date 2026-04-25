@@ -35,7 +35,7 @@ def main():
     parser.add_argument('--embed_dim', default=256, type=int)
     parser.add_argument('--net_G', default='ChangeBind', type=str, help='ScratchFormer')
 
-    parser.add_argument('--checkpoint_name', default='hyret_whu_ckpt.pt', type=str)
+    parser.add_argument('--checkpoint_name', default='hyret_whu_convnextv2t_ckpt.pt', type=str)
 
     args = parser.parse_args()
     utils.get_device(args)

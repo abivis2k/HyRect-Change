@@ -19,3 +19,18 @@ checkpoints/**
 
 /vis/**
 !/vis/.gitkeep
+
+# random stuff : )
+analyze_false_reports.py
+create_visualizations.py
+desktop.ini
+diagrams/
+diff.txt
+extract_image_components.py
+extract_image_components_README.md
+extracted_components/
+false_reports_summary.txt
+process_vis_images.py
+tmp.csv
+vis-all/
+README.md
