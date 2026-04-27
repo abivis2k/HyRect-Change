@@ -30,6 +30,7 @@ class CDDataAugmentation:
             hflip = 0.5,
             vflip = 0.5,
             crop = False,
+            crop_prob = 0.5,
             with_random_rot=False,
             with_random_crop=False,
             with_scale_random_crop=False,
@@ -51,6 +52,7 @@ class CDDataAugmentation:
         self.hflip = hflip
         self.vflip = vflip
         self.crop = crop
+        self.crop_prob = crop_prob
         self.random_base = 1 - self.hflip
 
     def transform(self, imgs, labels, to_tensor=True):
@@ -93,8 +95,8 @@ class CDDataAugmentation:
             imgs = [TF.rotate(img, angle) for img in imgs]
             labels = [TF.rotate(img, angle) for img in labels]
 
-        if self.with_random_crop and random.random() > (self.random_base if self.hflip != 0.5 else 0):
-            i, j, h, w = transforms.RandomResizedCrop(size=self.img_size). \
+        if self.with_random_crop and random.random() > (1 - self.crop_prob if self.crop else 0):
+            i, j, h, w = transforms.RandomResizedCrop(size=self.img_size).
                 get_params(img=imgs[0], scale=(0.8, 1.2), ratio=(1, 1))
 
             imgs = [TF.resized_crop(img, i, j, h, w,
