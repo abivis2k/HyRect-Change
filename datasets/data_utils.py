@@ -29,6 +29,7 @@ class CDDataAugmentation:
             with_random_vflip=False,
             hflip = 0.5,
             vflip = 0.5,
+            crop = False,
             with_random_rot=False,
             with_random_crop=False,
             with_scale_random_crop=False,
@@ -43,12 +44,13 @@ class CDDataAugmentation:
         self.with_random_hflip = with_random_hflip
         self.with_random_vflip = with_random_vflip
         self.with_random_rot = with_random_rot
-        self.with_random_crop = with_random_crop
+        self.with_random_crop = with_random_crop or crop
         self.with_scale_random_crop = with_scale_random_crop
         self.with_random_blur = with_random_blur
         self.random_color_tf=random_color_tf
         self.hflip = hflip
         self.vflip = vflip
+        self.crop = crop
         self.random_base = 1 - self.hflip
 
     def transform(self, imgs, labels, to_tensor=True):
@@ -105,7 +107,7 @@ class CDDataAugmentation:
                                       interpolation=Image.NEAREST)
                       for img in labels]
 
-        if self.with_scale_random_crop:
+        if not self.crop and self.with_scale_random_crop:
             # rescale
             scale_range = [1, 1.2]
             target_scale = scale_range[0] + random.random() * (scale_range[1] - scale_range[0])
