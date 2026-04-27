@@ -49,6 +49,7 @@ class CDDataAugmentation:
         self.random_color_tf=random_color_tf
         self.hflip = hflip
         self.vflip = vflip
+        self.random_base = 1 - self.hflip
 
     def transform(self, imgs, labels, to_tensor=True):
         """
@@ -73,8 +74,8 @@ class CDDataAugmentation:
             if labels[0].size != (self.img_size, self.img_size):
                 labels = [TF.resize(img, [self.img_size, self.img_size], interpolation=0)
                         for img in labels]
-
-        random_base = 0.5
+        # MODIFIED
+        # random_base = 0.5
         if self.with_random_hflip and random.random() > (1 - self.hflip):
             imgs = [TF.hflip(img) for img in imgs]
             labels = [TF.hflip(img) for img in labels]
@@ -83,14 +84,14 @@ class CDDataAugmentation:
             imgs = [TF.vflip(img) for img in imgs]
             labels = [TF.vflip(img) for img in labels]
 
-        if self.with_random_rot and random.random() > random_base:
+        if self.with_random_rot and random.random() > self.random_base:
             angles = [30, 45, 90, 180, 270]
             index = random.randint(0, 4)
             angle = angles[index]
             imgs = [TF.rotate(img, angle) for img in imgs]
             labels = [TF.rotate(img, angle) for img in labels]
 
-        if self.with_random_crop and random.random() > 0:
+        if self.with_random_crop and random.random() > (self.random_base if self.hflip != 0.5 else 0):
             i, j, h, w = transforms.RandomResizedCrop(size=self.img_size). \
                 get_params(img=imgs[0], scale=(0.8, 1.2), ratio=(1, 1))
 
