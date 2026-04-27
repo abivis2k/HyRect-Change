@@ -115,6 +115,8 @@ class CDTrainer():
         elif args.loss == "mmiou":
             self._pxl_loss = mmIoULoss(n_classes=args.n_class).cuda()
         elif args.loss == "dice":
+            self._pxl_loss = dice
+        elif args.loss == "ce_dice":
             self._pxl_loss = ce_dice
         else:
             raise NotImplemented(args.loss)
