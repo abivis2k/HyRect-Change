@@ -45,7 +45,8 @@ def get_loaders(args):
                                  label_transform=label_transform,
                                  hflip=args.hflip,
                                  vflip=args.vflip,
-                                 crop=args.crop)
+                                 crop=args.crop,
+                                 crop_prob=args.crop_prob)
         val_set = CDDataset(root_dir=root_dir, split=split_val,
                                  img_size=args.img_size,is_train=False,
                                  label_transform=label_transform)
