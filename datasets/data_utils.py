@@ -96,12 +96,12 @@ class CDDataAugmentation:
             labels = [TF.rotate(img, angle) for img in labels]
 
         if self.with_random_crop and random.random() > (1 - self.crop_prob if self.crop else 0):
-            i, j, h, w = transforms.RandomResizedCrop(size=self.img_size).
+            i, j, h, w = transforms.RandomResizedCrop(size=self.img_size). \
                 get_params(img=imgs[0], scale=(0.8, 1.2), ratio=(1, 1))
 
             imgs = [TF.resized_crop(img, i, j, h, w,
                                     size=(self.img_size, self.img_size),
-                                    interpolation=Image.CUBIC)
+                                    interpolation=Image.BICUBIC)
                     for img in imgs]
 
             labels = [TF.resized_crop(img, i, j, h, w,
