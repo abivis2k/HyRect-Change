@@ -49,7 +49,7 @@ def get_label_path(root_dir, img_name):
 
 class ImageDataset(data.Dataset):
     """VOCdataloder"""
-    def __init__(self, root_dir, split='train', img_size=256, is_train=True,to_tensor=True, hflip=0.5, vflip=0.5):
+    def __init__(self, root_dir, split='train', img_size=256, is_train=True,to_tensor=True, hflip=0.5, vflip=0.5, crop=False, crop_prob=0.5):
         super(ImageDataset, self).__init__()
         self.root_dir = root_dir
         self.img_size = img_size
@@ -67,6 +67,8 @@ class ImageDataset(data.Dataset):
                 with_random_vflip=vflip > 0,
                 hflip=hflip,
                 vflip=vflip,
+                with_random_crop=crop,
+                crop_prob=crop_prob,
                 with_scale_random_crop=True,
                 with_random_blur=True,
                 random_color_tf=True
@@ -95,9 +97,9 @@ class ImageDataset(data.Dataset):
 class CDDataset(ImageDataset):
 
     def __init__(self, root_dir, img_size, split='train', is_train=True, label_transform=None,
-                 to_tensor=True, hflip=0.5, vflip=0.5):
+                 to_tensor=True, hflip=0.5, vflip=0.5, crop=False, crop_prob=0.5):
         super(CDDataset, self).__init__(root_dir, img_size=img_size, split=split, is_train=is_train,
-                                        to_tensor=to_tensor, hflip=hflip, vflip=vflip)
+                                        to_tensor=to_tensor, hflip=hflip, vflip=vflip, crop=crop, crop_prob=crop_prob)
         self.label_transform = label_transform
 
     def __getitem__(self, index):

@@ -47,12 +47,13 @@ if __name__ == '__main__':
     parser.add_argument('--shuffle_AB', default=False, type=str)
     parser.add_argument('--hflip', default=0.5, type=float, help='horizontal flip probability (0.0 - 1.0)')
     parser.add_argument('--vflip', default=0.5, type=float, help='vertical flip probability (0.0 - 1.0)')
-
+    parser.add_argument('--crop', action='store_true', default=False)
+    parser.add_argument('--crop_prob', default=0.5, type=float)
+    
     # model
     parser.add_argument('--n_class', default=2, type=int)
     parser.add_argument('--embed_dim', default=256, type=int)
-    # MODIFIED (--pretrain default value was './pretrain/resnet50.pth')
-    parser.add_argument('--pretrain', default=None, type=str)
+    parser.add_argument('--pretrain', default='./pretrain/resnet50.pth', type=str)
     parser.add_argument('--multi_scale_train', default=False, type=bool)
     parser.add_argument('--multi_scale_infer', default=False, type=bool)
     parser.add_argument('--multi_pred_weights', nargs = '+', type = float, default = [0.5, 0.5, 0.5, 0.8, 1.0])
