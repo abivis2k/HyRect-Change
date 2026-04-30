@@ -49,18 +49,21 @@ We evaluate the impact of:
 
 Follow these steps to set up your environment before reproducing any results:
 
-1. **Install requirements:**
+1. **Download the ```setup.sh``` script to your local drive.**
+
+
+2. **Install requirements:**
    *(Run this **ONCE**)*
    ```bash
    bash setup.sh
    ```
 
-2. **Activate the environment:**
+3. **Activate the environment:**
    ```bash
    conda activate hyret
    ```
 
-3. **Enter the project directory:**
+4. **Enter the project directory:**
    ```bash
    cd HyRect-Change
    ```
