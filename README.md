@@ -1,7 +1,5 @@
 # HYRET-CHANGE 2.0
 
----
-
 ## 👥 Contributors
 
 This repository was extended as part of **[CSC 722]** at **[NCSU]**.
