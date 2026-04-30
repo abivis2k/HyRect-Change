@@ -59,7 +59,6 @@ wget https://huggingface.co/mustansarfiaz/HyRet/resolve/main/hyret_whu_ckpt.pt
 cd ../
 
 echo "Copying over student checkpoints..."
-# Please uncomment the commands for the dataset you'd like to evaluate:
 
 # LEVIR
 mkdir hyret_levir_resnet101
@@ -100,80 +99,80 @@ wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_
 cd ../
 
 # CDD
-# mkdir hyret_cdd_resnet101
-# cd hyret_cdd_resnet101
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_resnet101_ckpt.pt
-# cd ../
-# mkdir hyret_cdd_swint
-# cd hyret_cdd_swint
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swint_ckpt.pt
-# cd ../
-# mkdir hyret_cdd_swint_citysem
-# cd hyret_cdd_swint_citysem
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swint_citysem_ckpt.pt
-# cd ../
-# mkdir hyret_cdd_swinb
-# cd hyrer_cdd_swinb
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swinb_ckpt.pt
-# cd ../
-# mkdir hyret_cdd_swinb_citysem
-# cd hyret_cdd_swinb_citysem
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swinb_citysem_ckpt.pt
-# cd ../
-# mkdir hyret_cdd_mamba1k
-# cd hyret_cdd_mamba1k
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_mamba1k_ckpt.pt
-# cd ../
-# mkdir hyret_cdd_resnet50_flip30
-# cd hyret_cdd_resnet50_flip30
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_resnet50_flip30_ckpt.pt
-# cd ../
-# mkdir hyret_cdd_resnet50_flip30_crop
-# cd hyret_cdd_resnet50_flip30_crop
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_resnet50_flip30_crop_ckpt.pt
-# cd ../
-# mkdir hyret_cdd_resnet50_flip30_crop_ce_dice
-# cd hyret_cdd_resnet50_flip30_crop_ce_dice
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_resnet50_flip30_crop_ce_dice_ckpt.pt
-# cd ../
+mkdir hyret_cdd_resnet101
+cd hyret_cdd_resnet101
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_resnet101_ckpt.pt
+cd ../
+mkdir hyret_cdd_swint
+cd hyret_cdd_swint
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swint_ckpt.pt
+cd ../
+mkdir hyret_cdd_swint_citysem
+cd hyret_cdd_swint_citysem
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swint_citysem_ckpt.pt
+cd ../
+mkdir hyret_cdd_swinb
+cd hyrer_cdd_swinb
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swinb_ckpt.pt
+cd ../
+mkdir hyret_cdd_swinb_citysem
+cd hyret_cdd_swinb_citysem
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swinb_citysem_ckpt.pt
+cd ../
+mkdir hyret_cdd_mamba1k
+cd hyret_cdd_mamba1k
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_mamba1k_ckpt.pt
+cd ../
+mkdir hyret_cdd_resnet50_flip30
+cd hyret_cdd_resnet50_flip30
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_resnet50_flip30_ckpt.pt
+cd ../
+mkdir hyret_cdd_resnet50_flip30_crop
+cd hyret_cdd_resnet50_flip30_crop
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_resnet50_flip30_crop_ckpt.pt
+cd ../
+mkdir hyret_cdd_resnet50_flip30_crop_ce_dice
+cd hyret_cdd_resnet50_flip30_crop_ce_dice
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_resnet50_flip30_crop_ce_dice_ckpt.pt
+cd ../
 
 # WHU
-# mkdir hyret_whu_resnet101
-# cd hyret_whu_resnet101
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_resnet101_ckpt.pt
-# cd ../
-# mkdir hyret_whu_swint
-# cd hyret_whu_swint
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swint_ckpt.pt
-# cd ../
-# mkdir hyret_whu_swint_citysem
-# cd hyret_whu_swint_citysem
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swint_citysem_ckpt.pt
-# cd ../
-# mkdir hyret_whu_swinb
-# cd hyret_whu_swinb
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swinb_ckpt.pt
-# cd ../
-# mkdir hyret_whu_swinb_citysem
-# cd hyret_whu_swinb_citysem
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swinb_citysem_ckpt.pt
-# cd ../
-# mkdir hyret_whu_mamba1k
-# cd hyret_whu_mamba1k
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_mamba1k_ckpt.pt
-# cd ../
-# mkdir hyret_whu_resnet50_flip30
-# cd hyret_whu_resnet50_flip30
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_resnet50_flip30_ckpt.pt
-# cd ../
-# mkdir hyret_whu_resnet50_flip30_crop
-# cd hyret_whu_resnet50_flip30_crop
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_resnet50_flip30_crop_ckpt.pt
-# cd ../
-# mkdir hyret_whu_resnet50_flip30_crop_ce_dice
-# cd hyret_whu_resnet50_flip30_crop_ce_dice
-# wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_resnet50_flip30_crop_ce_dice_ckpt.pt
-# cd ../
+mkdir hyret_whu_resnet101
+cd hyret_whu_resnet101
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_resnet101_ckpt.pt
+cd ../
+mkdir hyret_whu_swint
+cd hyret_whu_swint
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swint_ckpt.pt
+cd ../
+mkdir hyret_whu_swint_citysem
+cd hyret_whu_swint_citysem
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swint_citysem_ckpt.pt
+cd ../
+mkdir hyret_whu_swinb
+cd hyret_whu_swinb
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swinb_ckpt.pt
+cd ../
+mkdir hyret_whu_swinb_citysem
+cd hyret_whu_swinb_citysem
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swinb_citysem_ckpt.pt
+cd ../
+mkdir hyret_whu_mamba1k
+cd hyret_whu_mamba1k
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_mamba1k_ckpt.pt
+cd ../
+mkdir hyret_whu_resnet50_flip30
+cd hyret_whu_resnet50_flip30
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_resnet50_flip30_ckpt.pt
+cd ../
+mkdir hyret_whu_resnet50_flip30_crop
+cd hyret_whu_resnet50_flip30_crop
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_resnet50_flip30_crop_ckpt.pt
+cd ../
+mkdir hyret_whu_resnet50_flip30_crop_ce_dice
+cd hyret_whu_resnet50_flip30_crop_ce_dice
+wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_resnet50_flip30_crop_ce_dice_ckpt.pt
+cd ../
 cd ../
 
 echo "Installing dependencies..."
