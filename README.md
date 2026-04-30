@@ -1,5 +1,163 @@
 # HYRET-CHANGE: A HYBRID RETENTIVE NETWORK FOR REMOTE SENSING CHANGE DETECTION
 
+---
+
+## 👥 Contributors
+
+This repository was extended as part of **[CSC 722]** at **[NCSU]**.
+
+| Team Members |
+|------|
+| [Janelle Correia] (jlcorrei) |
+| [Abishek Viswanath Pittamandalam] (apittam) |
+| [Lawrence Stephenson] (lasteph2)|
+
+**Instructor:** [Dr. Raju Vatsavai]
+
+---
+
+## 🔬 Extended Study: Design Choice Analysis
+
+This fork extends the original HyRet-Change implementation to systematically study the impact of fundamental design choices on change detection performance, inspired by ["Be the Change You Want to See: Revisiting Remote Sensing Change Detection Practices"](https://arxiv.org/pdf/2507.03367).
+
+We evaluate the impact of:
+- **Backbone architecture** (ResNet-50, ResNet-101, Swin-T, Swin-B, MambaVision-S-1k)
+- **Backbone pretraining** (ImageNet-1k, ImageNet-22k, Cityscapes Semantic Segmentation)
+- **Data augmentation** (horizontal/vertical flip, rotation, crop at 30% probability)
+- **Loss functions** (Cross-Entropy, Dice, CE+Dice)
+
+---
+
+## 📦 Datasets
+
+- [LEVIR-CD](https://justchenhao.github.io/LEVIR/) — from the [paper](https://doi.org/10.3390/rs12101662)
+- [WHU-CD](https://gpcv.whu.edu.cn/data/building_dataset.html) — from the [paper](https://doi.org/10.1109/TGRS.2018.2858817)
+- [CDD](https://drive.google.com/file/d/1GX656JqqOyBi_Ef0w65kDGVto-nHrNs9/edit) — from the [paper](https://isprs-archives.copernicus.org/articles/XLII-2/565/2018/isprs-archives-XLII-2-565-2018.pdf)
+
+---
+
+## 📄 Papers
+
+- [HyRet-Change: A hybrid retentive network for remote sensing change detection](https://arxiv.org/pdf/2506.12836) — [HuggingFace](https://huggingface.co/mustansarfiaz/HyRet)
+- [Be the Change You Want to See: Revisiting Remote Sensing Change Detection Practices](https://arxiv.org/pdf/2507.03367) — [HuggingFace](https://huggingface.co/collections/blaz-r/be-the-change-btc)
+
+---
+
+## 🚀 Quick Start
+- Install requirements:
+-- Run ```bash setup.sh```
+-- In a new terminal, activate the environment via ```conda activate hyret```
+-- Enter the project directory: ```cd HyRet-Change```
+Once these steps are complete, proceed to the evaluation commands listed below.
+
+---
+
+## Commands to Reproduce Results
+
+### LEVIR-CD
+
+```bash
+# ResNet-50 (Baseline)
+python eval_cd.py --data_name LEVIR --project_name hyret_levir --checkpoint_name hyret_levir_ckpt.pt
+
+# ResNet-101
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_resnet101 --checkpoint_name hyret_levir_resnet101_ckpt.pt
+
+# Swin-Tiny
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_swint --checkpoint_name hyret_levir_swint_ckpt.pt
+
+# Swin-Tiny + Cityscapes Semantic Segmentation
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_swint_citysem --checkpoint_name hyret_levir_swint_citysem_ckpt.pt
+
+# Swin-Base
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_swinb --checkpoint_name hyret_levir_swinb_ckpt.pt
+
+# Swin-Base + Cityscapes Semantic Segmentation
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_swinb_citysem --checkpoint_name hyret_levir_swinb_citysem_ckpt.pt
+
+# Mamba1k
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_mamba1k --checkpoint_name hyret_levir_mamba1k_ckpt.pt
+
+# ResNet-50 + 30% Flip + 30% Rotation
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_resnet50_flip30 --checkpoint_name hyret_levir_resnet50_flip30_ckpt.pt
+
+# ResNet-50 + 30% Flip + 30% Rotation + 30% Crop
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_resnet50_flip30_crop --checkpoint_name hyret_levir_resnet50_flip30_crop_ckpt.pt
+
+# ResNet-50 + 30% Flip + 30% Rotation + 30% Crop + CE+Dice Loss
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_resnet50_flip30_crop_ce_dice --checkpoint_name hyret_levir_resnet50_flip30_crop_ce_dice_ckpt.pt
+```
+
+### CDD
+
+```bash
+# ResNet-50 (Baseline)
+python eval_cd.py --data_name CDD --project_name hyret_cdd --checkpoint_name hyret_cdd_ckpt.pt
+
+# ResNet-101
+python eval_cd.py --data_name CDD --project_name hyret_cdd_resnet101 --checkpoint_name hyret_cdd_resnet101_ckpt.pt
+
+# Swin-Tiny
+python eval_cd.py --data_name CDD --project_name hyret_cdd_swint --checkpoint_name hyret_cdd_swint_ckpt.pt
+
+# Swin-Tiny + Cityscapes Semantic Segmentation
+python eval_cd.py --data_name CDD --project_name hyret_cdd_swint_citysem --checkpoint_name hyret_cdd_swint_citysem_ckpt.pt
+
+# Swin-Base
+python eval_cd.py --data_name CDD --project_name hyret_cdd_swinb --checkpoint_name hyret_cdd_swinb_ckpt.pt
+
+# Swin-Base + Cityscapes Semantic Segmentation
+python eval_cd.py --data_name CDD --project_name hyret_cdd_swinb_citysem --checkpoint_name hyret_cdd_swinb_citysem_ckpt.pt
+
+# Mamba1k
+python eval_cd.py --data_name CDD --project_name hyret_cdd_mamba1k --checkpoint_name hyret_cdd_mamba1k_ckpt.pt
+
+# ResNet-50 + 30% Flip + 30% Rotation
+python eval_cd.py --data_name CDD --project_name hyret_cdd_resnet50_flip30 --checkpoint_name hyret_cdd_resnet50_flip30_ckpt.pt
+
+# ResNet-50 + 30% Flip + 30% Rotation + 30% Crop
+python eval_cd.py --data_name CDD --project_name hyret_cdd_resnet50_flip30_crop --checkpoint_name hyret_cdd_resnet50_flip30_crop_ckpt.pt
+
+# ResNet-50 + 30% Flip + 30% Rotation + 30% Crop + CE+Dice Loss
+python eval_cd.py --data_name CDD --project_name hyret_cdd_resnet50_flip30_crop_ce_dice --checkpoint_name hyret_cdd_resnet50_flip30_crop_ce_dice_ckpt.pt
+```
+
+### WHU-CD
+
+```bash
+# ResNet-50 (Baseline)
+python eval_cd.py --data_name WHU --project_name hyret_whu --checkpoint_name hyret_whu_ckpt.pt
+
+# ResNet-101
+python eval_cd.py --data_name WHU --project_name hyret_whu_resnet101 --checkpoint_name hyret_whu_resnet101_ckpt.pt
+
+# Swin-Tiny
+python eval_cd.py --data_name WHU --project_name hyret_whu_swint --checkpoint_name hyret_whu_swint_ckpt.pt
+
+# Swin-Tiny + Cityscapes Semantic Segmentation
+python eval_cd.py --data_name WHU --project_name hyret_whu_swint_citysem --checkpoint_name hyret_whu_swint_citysem_ckpt.pt
+
+# Swin-Base
+python eval_cd.py --data_name WHU --project_name hyret_whu_swinb --checkpoint_name hyret_whu_swinb_ckpt.pt
+
+# Swin-Base + Cityscapes Semantic Segmentation
+python eval_cd.py --data_name WHU --project_name hyret_whu_swinb_citysem --checkpoint_name hyret_whu_swinb_citysem_ckpt.pt
+
+# Mamba1k
+python eval_cd.py --data_name WHU --project_name hyret_whu_mamba1k --checkpoint_name hyret_whu_mamba1k_ckpt.pt
+
+# ResNet-50 + 30% Flip + 30% Rotation
+python eval_cd.py --data_name WHU --project_name hyret_whu_resnet50_flip30 --checkpoint_name hyret_whu_resnet50_flip30_ckpt.pt
+
+# ResNet-50 + 30% Flip + 30% Rotation + 30% Crop
+python eval_cd.py --data_name WHU --project_name hyret_whu_resnet50_flip30_crop --checkpoint_name hyret_whu_resnet50_flip30_crop_ckpt.pt
+
+# ResNet-50 + 30% Flip + 30% Rotation + 30% Crop + CE+Dice Loss
+python eval_cd.py --data_name WHU --project_name hyret_whu_resnet50_flip30_crop_ce_dice --checkpoint_name hyret_whu_resnet50_flip30_crop_ce_dice_ckpt.pt
+```
+
+---
+
 #### [Mustansar Fiaz](https://sites.google.com/view/mustansarfiaz/home), [Mubashir Noman](https://scholar.google.com/citations?user=S6_CVskAAAAJ&hl=en),  [Hiyam Debary](https://www.linkedin.com/in/hiyam-debary/), [Kamran Ali](https://scholar.google.com/citations?user=JuQ_vNIAAAAJ&hl=en), [Hisham Cholakkal](https://hishamcholakkal.com/)
 
 
@@ -8,7 +166,6 @@
 
 
 ---
-
 ### 🏆 Highlights
 -----------------
 - **HyRet-Change:** We propose a Siamese-based framework, which can seamlessly integrate the merits of convolution and retention mechanisms at multi-scale features to preserve critical information and enhance adaptability in complex scenes change detection (CD).  Specifically, we propose a hybrid plug-and-play feature difference module (FDM) to explore rich feature information utilizing both self-attention and convolution operations in a parallel way. This unique integration, at multi-scale features, leverages the
