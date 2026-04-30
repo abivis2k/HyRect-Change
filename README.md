@@ -48,6 +48,7 @@ We evaluate the impact of:
     - Run ```bash setup.sh```
     - In a new terminal, activate the environment via ```conda activate hyret```
     - Enter the project directory: ```cd HyRect-Change```
+
 Once these steps are complete, proceed to the evaluation commands listed below.
 
 ---
