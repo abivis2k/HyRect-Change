@@ -45,6 +45,8 @@ We evaluate the impact of:
 
 > **Note:** You do not need to manually clone this repository. The `setup.sh` script handles the entire installation process, including cloning, environment configuration, and dependencies.
 
+> Please be aware that the setup script fetches ***ALL*** datasets and ***ALL*** pre-trained checkpoints required for the experiments, so ensure you have sufficient disk space before proceeding.
+
 Follow these steps to set up your environment before reproducing any results:
 
 1. **Install requirements:**
@@ -172,6 +174,10 @@ python eval_cd.py --data_name WHU --project_name hyret_whu_resnet50_flip30_crop_
 ```
 
 ---
+
+***Please be sure to read the original author's documentation below for deeper insights into the core HyRet methodology and architecture details!***
+
+___
 
 # HYRET-CHANGE: A HYBRID RETENTIVE NETWORK FOR REMOTE SENSING CHANGE DETECTION
 
