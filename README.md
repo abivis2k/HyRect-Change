@@ -85,10 +85,10 @@ python eval_cd.py --data_name LEVIR --project_name hyret_levir_swint --checkpoin
 python eval_cd.py --data_name LEVIR --project_name hyret_levir_swint_citysem --checkpoint_name hyret_levir_swint_citysem_ckpt.pt
 
 # Swin-Base
-python eval_cd.py --data_name LEVIR --project_name hyret_levir_swinb --checkpoint_name hyret_levir_swinb_ckpt.pt
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_swinb --checkpoint_name hyret_levir_swinb_ckpt.pt --backbone swin_base
 
 # Swin-Base + Cityscapes Semantic Segmentation
-python eval_cd.py --data_name LEVIR --project_name hyret_levir_swinb_citysem --checkpoint_name hyret_levir_swinb_citysem_ckpt.pt
+python eval_cd.py --data_name LEVIR --project_name hyret_levir_swinb_citysem --checkpoint_name hyret_levir_swinb_citysem_ckpt.pt --backbone swin_base
 
 # Mamba1k
 python eval_cd.py --data_name LEVIR --project_name hyret_levir_mamba1k --checkpoint_name hyret_levir_mamba1k_ckpt.pt
@@ -119,10 +119,10 @@ python eval_cd.py --data_name CDD --project_name hyret_cdd_swint --checkpoint_na
 python eval_cd.py --data_name CDD --project_name hyret_cdd_swint_citysem --checkpoint_name hyret_cdd_swint_citysem_ckpt.pt
 
 # Swin-Base
-python eval_cd.py --data_name CDD --project_name hyret_cdd_swinb --checkpoint_name hyret_cdd_swinb_ckpt.pt
+python eval_cd.py --data_name CDD --project_name hyret_cdd_swinb --checkpoint_name hyret_cdd_swinb_ckpt.pt --backbone swin_base
 
 # Swin-Base + Cityscapes Semantic Segmentation
-python eval_cd.py --data_name CDD --project_name hyret_cdd_swinb_citysem --checkpoint_name hyret_cdd_swinb_citysem_ckpt.pt
+python eval_cd.py --data_name CDD --project_name hyret_cdd_swinb_citysem --checkpoint_name hyret_cdd_swinb_citysem_ckpt.pt --backbone swin_base
 
 # Mamba1k
 python eval_cd.py --data_name CDD --project_name hyret_cdd_mamba1k --checkpoint_name hyret_cdd_mamba1k_ckpt.pt
@@ -153,10 +153,10 @@ python eval_cd.py --data_name WHU --project_name hyret_whu_swint --checkpoint_na
 python eval_cd.py --data_name WHU --project_name hyret_whu_swint_citysem --checkpoint_name hyret_whu_swint_citysem_ckpt.pt
 
 # Swin-Base
-python eval_cd.py --data_name WHU --project_name hyret_whu_swinb --checkpoint_name hyret_whu_swinb_ckpt.pt
+python eval_cd.py --data_name WHU --project_name hyret_whu_swinb --checkpoint_name hyret_whu_swinb_ckpt.pt --backbone swin_base
 
 # Swin-Base + Cityscapes Semantic Segmentation
-python eval_cd.py --data_name WHU --project_name hyret_whu_swinb_citysem --checkpoint_name hyret_whu_swinb_citysem_ckpt.pt
+python eval_cd.py --data_name WHU --project_name hyret_whu_swinb_citysem --checkpoint_name hyret_whu_swinb_citysem_ckpt.pt --backbone swin_base
 
 # Mamba1k
 python eval_cd.py --data_name WHU --project_name hyret_whu_mamba1k --checkpoint_name hyret_whu_mamba1k_ckpt.pt
