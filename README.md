@@ -1,4 +1,4 @@
-# HYRET-CHANGE: A HYBRID RETENTIVE NETWORK FOR REMOTE SENSING CHANGE DETECTION
+# HYRET-CHANGE 2.0
 
 ---
 
@@ -174,6 +174,8 @@ python eval_cd.py --data_name WHU --project_name hyret_whu_resnet50_flip30_crop_
 ```
 
 ---
+
+# HYRET-CHANGE: A HYBRID RETENTIVE NETWORK FOR REMOTE SENSING CHANGE DETECTION
 
 #### [Mustansar Fiaz](https://sites.google.com/view/mustansarfiaz/home), [Mubashir Noman](https://scholar.google.com/citations?user=S6_CVskAAAAJ&hl=en),  [Hiyam Debary](https://www.linkedin.com/in/hiyam-debary/), [Kamran Ali](https://scholar.google.com/citations?user=JuQ_vNIAAAAJ&hl=en), [Hisham Cholakkal](https://hishamcholakkal.com/)
 
