@@ -49,7 +49,7 @@ We evaluate the impact of:
 
 Follow these steps to set up your environment before reproducing any results:
 
-1. **Download the ```setup.sh``` script to your local drive.
+1. **Download the ```setup.sh``` script to your local drive.**
 
 
 2. **Install requirements:**
