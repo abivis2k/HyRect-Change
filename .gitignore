@@ -33,6 +33,6 @@ extract_image_components_README.md
 extracted_components/
 false_reports_summary.txt
 process_vis_images.py
+new_process_vis_images.py
 tmp.csv
 vis-all/
-README.md
