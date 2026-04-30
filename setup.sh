@@ -74,7 +74,10 @@ mkdir hyret_levir_swint_citysem
 cd hyret_levir_swint_citysem
 wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_levir_swint_citysem_ckpt.pt
 cd ../
+mkdir hyret_levir_swinb
+cd hyrer_levir_swinb
 wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_levir_swinb_ckpt.pt
+cd ../
 mkdir hyret_levir_swinb_citysem
 cd hyret_levir_swinb_citysem
 wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_levir_swinb_citysem_ckpt.pt
@@ -109,7 +112,10 @@ cd ../
 # cd hyret_cdd_swint_citysem
 # wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swint_citysem_ckpt.pt
 # cd ../
+# mkdir hyret_cdd_swinb
+# cd hyrer_cdd_swinb
 # wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swinb_ckpt.pt
+# cd ../
 # mkdir hyret_cdd_swinb_citysem
 # cd hyret_cdd_swinb_citysem
 # wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_cdd_swinb_citysem_ckpt.pt
@@ -144,7 +150,10 @@ cd ../
 # cd hyret_whu_swint_citysem
 # wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swint_citysem_ckpt.pt
 # cd ../
+# mkdir hyret_whu_swinb
+# cd hyret_whu_swinb
 # wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swinb_ckpt.pt
+# cd ../
 # mkdir hyret_whu_swinb_citysem
 # cd hyret_whu_swinb_citysem
 # wget https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION/resolve/main/hyret_whu_swinb_citysem_ckpt.pt
