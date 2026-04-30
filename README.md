@@ -50,7 +50,7 @@ We evaluate the impact of:
 Follow these steps to set up your environment before reproducing any results:
 
 1. **Install requirements:**
-   *(Run this once to install all necessary dependencies)*
+   *(Run this **ONCE**)*
    ```bash
    bash setup.sh
    ```
