@@ -19,6 +19,11 @@ def main():
     parser.add_argument('--print_models', default=False, type=bool, help='print models')
     parser.add_argument('--checkpoints_root', default='./checkpoints', type=str)
     parser.add_argument('--vis_root', default='vis', type=str)
+    parser.add_argument('--hflip', default=0.5, type=float, help='horizontal flip probability (0.0 - 1.0)')
+    parser.add_argument('--vflip', default=0.5, type=float, help='vertical flip probability (0.0 - 1.0)')
+    parser.add_argument('--flip', default=0.5, type=float, help='complete flip probability (0.0 - 1.0)')
+    parser.add_argument('--crop', action='store_true', default=False)
+    parser.add_argument('--crop_prob', default=0.5, type=float)
 
     # data
     parser.add_argument('--num_workers', default=8, type=int)
@@ -34,6 +39,8 @@ def main():
     parser.add_argument('--n_class', default=2, type=int)
     parser.add_argument('--embed_dim', default=256, type=int)
     parser.add_argument('--net_G', default='ChangeBind', type=str, help='ScratchFormer')
+    parser.add_argument('--loss', default='ce', type=str)
+    parser.add_argument('--backbone', default='resnet50', type=str, help='resnet50 | swin_base | convnext')
 
     parser.add_argument('--checkpoint_name', default='best_ckpt.pt', type=str)
 
