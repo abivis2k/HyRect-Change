@@ -45,9 +45,9 @@ We evaluate the impact of:
 
 ## 🚀 Quick Start
 - Install requirements:
--- Run ```bash setup.sh```
--- In a new terminal, activate the environment via ```conda activate hyret```
--- Enter the project directory: ```cd HyRet-Change```
+    - Run ```bash setup.sh```
+    - In a new terminal, activate the environment via ```conda activate hyret```
+    - Enter the project directory: ```cd HyRect-Change```
 Once these steps are complete, proceed to the evaluation commands listed below.
 
 ---
