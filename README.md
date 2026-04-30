@@ -103,7 +103,7 @@ python eval_cd.py --data_name LEVIR --project_name hyret_levir_resnet50_flip30_c
 python eval_cd.py --data_name LEVIR --project_name hyret_levir_resnet50_flip30_crop_ce_dice --checkpoint_name hyret_levir_resnet50_flip30_crop_ce_dice_ckpt.pt
 ```
 
-### CDD
+### CDD-CD
 
 ```bash
 # ResNet-50 (Baseline)
