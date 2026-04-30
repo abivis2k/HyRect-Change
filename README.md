@@ -1,4 +1,4 @@
-# HYRET-CHANGE 2.0
+# HYRET-CHANGE 2.0: Leveraging Fundamental Design Insights for Improved Change Detection
 
 ## 👥 Contributors
 
