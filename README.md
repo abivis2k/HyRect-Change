@@ -45,7 +45,7 @@ We evaluate the impact of:
 
 ## 🚀 Quick Start (Install Requirements)
 
-> **Note:** You do not need to manually clone this repository. The `setup.sh` script handles the entire installation process, including cloning, environment configuration, and dependency management.
+> **Note:** You do not need to manually clone this repository. The `setup.sh` script handles the entire installation process, including cloning, environment configuration, and dependencies.
 
 Follow these steps to set up your environment before reproducing any results:
 
