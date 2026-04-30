@@ -24,6 +24,8 @@ We evaluate the impact of:
 - **Data augmentation** (horizontal/vertical flip, rotation, crop at 30% probability)
 - **Loss functions** (Cross-Entropy, Dice, CE+Dice)
 
+See our [HuggingFace Repo](https://huggingface.co/datasets/Csc722Sp26Group1/CSC722_SP26_GROUP1_CHANGE_DETECTION) for all project checkpoints and path configuration files.
+
 ---
 
 ## 📦 Datasets
