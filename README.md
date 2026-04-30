@@ -45,9 +45,9 @@ We evaluate the impact of:
 
 ## 🚀 Quick Start (Install Requirements)
 
-> **Note:** You do not need to manually clone this repository. The `setup.sh` script handles the entire installation process, including cloning, environment configuration, and dependency management for you.
+> **Note:** You do not need to manually clone this repository. The `setup.sh` script handles the entire installation process, including cloning, environment configuration, and dependency management.
 
-Follow these steps to set up your environment before running any experiments:
+Follow these steps to set up your environment before reproducing any results:
 
 1. **Install requirements:**
    *(Run this once to install all necessary dependencies)*
@@ -62,7 +62,7 @@ Follow these steps to set up your environment before running any experiments:
 
 3. **Enter the project directory:**
    ```bash
-   cd HyRet-Change
+   cd HyRect-Change
    ```
 
 *Once these steps are complete, proceed to the evaluation commands listed below.*
