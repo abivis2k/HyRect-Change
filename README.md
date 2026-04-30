@@ -22,7 +22,7 @@ This fork extends the original HyRet-Change implementation to systematically stu
 
 We evaluate the impact of:
 - **Backbone architecture** (ResNet-50, ResNet-101, Swin-T, Swin-B, MambaVision-S-1k)
-- **Backbone pretraining** (ImageNet-1k, ImageNet-22k, Cityscapes Semantic Segmentation)
+- **Backbone pretraining** (Cityscapes Semantic Segmentation)
 - **Data augmentation** (horizontal/vertical flip, rotation, crop at 30% probability)
 - **Loss functions** (Cross-Entropy, Dice, CE+Dice)
 
