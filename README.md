@@ -43,13 +43,29 @@ We evaluate the impact of:
 
 ---
 
-## 🚀 Quick Start
-- Install requirements:
-    - Run ```bash setup.sh```
-    - In a new terminal, activate the environment via ```conda activate hyret```
-    - Enter the project directory: ```cd HyRect-Change```
+## 🚀 Quick Start (Install Requirements)
 
-Once these steps are complete, proceed to the evaluation commands listed below.
+> **Note:** You do not need to manually clone this repository. The `setup.sh` script handles the entire installation process, including cloning, environment configuration, and dependency management for you.
+
+Follow these steps to set up your environment before running any experiments:
+
+1. **Install requirements:**
+   *(Run this once to install all necessary dependencies)*
+   ```bash
+   bash setup.sh
+   ```
+
+2. **Activate the environment:**
+   ```bash
+   conda activate hyret
+   ```
+
+3. **Enter the project directory:**
+   ```bash
+   cd HyRet-Change
+   ```
+
+*Once these steps are complete, proceed to the evaluation commands listed below.*
 
 ---
 
