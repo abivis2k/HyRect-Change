@@ -19,8 +19,8 @@ This repository was extended as part of **[CSC 722]** at **[NCSU]**.
 This fork extends the original HyRet-Change implementation to systematically study the impact of fundamental design choices on change detection performance, inspired by ["Be the Change You Want to See: Revisiting Remote Sensing Change Detection Practices"](https://arxiv.org/pdf/2507.03367).
 
 We evaluate the impact of:
-- **Backbone architecture** (ResNet-50, ResNet-101, Swin-T, Swin-B, MambaVision-S-1k)
-- **Backbone pretraining** (Cityscapes Semantic Segmentation)
+- **Backbone architecture** (ResNet-50, ResNet-101, Swin-T, Swin-B, MambaVisionBase)
+- **Backbone pretraining** (ImageNet-1k, Cityscapes Semantic Segmentation)
 - **Data augmentation** (horizontal/vertical flip, rotation, crop at 30% probability)
 - **Loss functions** (Cross-Entropy, Dice, CE+Dice)
 
